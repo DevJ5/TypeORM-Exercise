@@ -14,7 +14,7 @@ import Game from './entity';
 interface GameObject {
   name: string;
   color: string;
-  board: Array<Array<string>>;
+  board: string[][];
 }
 
 @JsonController()
@@ -43,7 +43,7 @@ export default class GameController {
   async updateGame(
     @Body() game: Partial<Game>,
     @Param('id') id: number
-  ): Promise<Game> {
+  ): Promise<GameObject> {
     const currentGame = await Game.findOne(id);
     if (!currentGame) throw new BadRequestError();
     if (game.color && !this.validateColor(game.color))
