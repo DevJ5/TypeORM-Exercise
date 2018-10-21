@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { BaseEntity } from 'typeorm/repository/BaseEntity';
-import { IsString, Length, MinLength } from 'class-validator';
+import { IsString, Length} from 'class-validator';
 
 @Entity()
 export default class Game extends BaseEntity {
@@ -21,16 +21,4 @@ export default class Game extends BaseEntity {
   @Column('json')
   board: string[][];
 
-  setNewColorAndBoard() {
-    const colors = ['red', 'blue', 'green', 'yellow', 'magenta'];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    this.color = randomColor;
-    this.board = [['o', 'o', 'o'], ['o', 'o', 'o'], ['o', 'o', 'o']];
-  }
-
-  validateColor(color) {
-    const colors = ['red', 'blue', 'green', 'yellow', 'magenta'];
-    if(colors.includes(color)) return true
-    return false;
-  }
 }
