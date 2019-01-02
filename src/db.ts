@@ -27,7 +27,7 @@ class CustomNamingStrategy extends DefaultNamingStrategy implements NamingStrate
 export default () =>
   createConnection({
     type: "postgres",
-    url: process.env.DATABASE_URL || 'postgres://postgres:secret@localhost:5432/test_db',
+    url: process.env.DATABASE_URL || 'postgres://postgres:password@localhost:5432/nameofdb',
     entities: [Game],
     synchronize: true,
     logging: true,
