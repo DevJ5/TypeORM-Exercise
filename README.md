@@ -1,4 +1,7 @@
-# homework-week-6
+# TypeORM Exercise
 
-## yarn install
-## yarn start
+``` bash
+yarn install
+yarn start
+```
+
